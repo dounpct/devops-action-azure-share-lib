@@ -6,7 +6,7 @@ send_notification() {
   local log_url=$3
   local msg_type=$4
 
-  message='{"text": "'"${status}"'GitHub Action: Action : '"${msg_type}"'\nType : Build with Tag\nApplication : '"${service_name}"'\nEnvironment : '"${environment}"'\nRef-Key : '"${image_tag}"'\nTagName : '"${tag_name}"'\nSHA1 : '"${short_sha}"'\nStatus : '"N/A"'\nDuration : '"${duration}"' seconds\nBy : '"${commit_user}"'\nLog : \"'"${log_url}"'\""}'
+  message=$'{"text": "'"${status}"'GitHub Action: Action : '"${msg_type}"'\nType : Build with Tag\nApplication : '"${service_name}"'\nEnvironment : '"${environment}"'\nRef-Key : '"${image_tag}"'\nTagName : '"${tag_name}"'\nSHA1 : '"${short_sha}"'\nStatus : '"N/A"'\nDuration : '"${duration}"' seconds\nBy : '"${commit_user}"'\nLog : \"'"${log_url}"'\""}'
   
   curl -X POST \
     -H "Authorization: Bearer ${LINE_TOKEN} " \
