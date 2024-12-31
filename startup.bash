@@ -4,12 +4,12 @@
 TOKEN=${LINE_TOKEN}
 
 # Message to Send (Supports Multi-Line)
-MESSAGE="text: ${status}\n GitHub Action: ${msg_type} \n Type: Build"
+MESSAGE=$"${service_name}\nLine 2\nLine 3"
 
 # Send the Notification
 curl -X POST \
-  -H 'Authorization: Bearer ${TOKEN}' \
-  -F $'message=${MESSAGE}' \
+  -H "Authorization: Bearer ${TOKEN}" \
+  -F "message=${MESSAGE}" \
   https://notify-api.line.me/api/notify
 
 
