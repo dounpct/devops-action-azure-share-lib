@@ -3,16 +3,18 @@
 # LINE Notify Token
 TOKEN=${LINE_TOKEN}
 
-# Define a variable for Line 1
+# Define variables for each line
 LINE1="Custom Line 1 Text"
+LINE2="Line 2"
+LINE3="Line 3"
 
 # Construct the multi-line message
-MESSAGE=$"${LINE1}\nLine 2\nLine 3"
+MESSAGE=$"${LINE1}\n${LINE2}\n${LINE3}"
 
 # Send the Notification
 curl -X POST \
   -H "Authorization: Bearer ${TOKEN}" \
-  -F "message=${MESSAGE}" \
+  -F "message=$MESSAGE" \
   https://notify-api.line.me/api/notify
 
 
