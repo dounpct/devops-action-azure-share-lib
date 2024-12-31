@@ -24,7 +24,7 @@ URL: ${log_url}
 EOT
 )
 
-  curl -s -X POST -H "Authorization: Bearer ${LINE_TOKEN}" -F "message=${START_MESSAGE}" https://notify-api.line.me/api/notify
+  curl -s -X POST -H "Authorization: Bearer ${TOKEN}" -F "message=${START_MESSAGE}" https://notify-api.line.me/api/notify
 }
 
 
