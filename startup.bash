@@ -13,7 +13,7 @@ Environment: ${service_name}
 EOT
 )
 
-curl -s -X POST -H "Authorization: Bearer ${LINE_TOKEN}" -F "message=${START_MESSAGE}" ${LINE_URL}
+curl -s -X POST -H "Authorization: Bearer ${LINE_TOKEN}" -F "message=${START_MESSAGE}" https://notify-api.line.me/api/notify
 
 # send_notification() {
 #   local status=$1
