@@ -4,7 +4,7 @@
 TOKEN=${LINE_TOKEN}
 
 # Message to Send (Supports Multi-Line)
-MESSAGE='Line 1\nLine 2\nLine 3'
+MESSAGE=$' text: ${status}\n GitHub Action: ${msg_type} \n Type: Build '
 
 # Send the Notification
 curl -X POST \
