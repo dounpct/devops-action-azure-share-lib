@@ -3,30 +3,17 @@
 # LINE Notify Token
 TOKEN=${LINE_TOKEN}
 
-# Define variables for each line
-LINE1="Custom Line 1 Text"
-LINE2="Line 2"
-LINE3="Line 3"
 
-# Construct the multi-line message
-MESSAGE=$"${LINE1}\n${LINE2}\n${LINE3}"
+START_MESSAGE=$(cat <<EOT
+Type: Manual Build/Deploy
+Action: Done
+App: ${service_name}
+Branch/Tag: ${service_name}
+Environment: ${service_name}
+EOT
+)
 
-# Send the Notification
-curl -X POST \
-  -H "Authorization: Bearer ${TOKEN}" \
-  -F "message=$MESSAGE" \
-  https://notify-api.line.me/api/notify
-
-
-# # Message to Send (Supports Multi-Line)
-# MESSAGE="${service_name}\nLine 2\nLine 3"
-
-# # Send the Notification
-# curl -X POST \
-#   -H "Authorization: Bearer ${TOKEN}" \
-#   -F $"message=${MESSAGE}" \
-#   https://notify-api.line.me/api/notify
-
+curl -s -X POST -H "Authorization: Bearer ${LINE_TOKEN}" -F "message=${START_MESSAGE}" ${LINE_URL}
 
 # send_notification() {
 #   local status=$1
