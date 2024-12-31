@@ -12,7 +12,7 @@ send_notification() {
   START_MESSAGE=$(cat <<EOT
 -
 Type: Manual Build/Deploy
-Action: ${status}
+Action: ${msg_type}
 App: ${service_name}
 Branch/Tag: ${tag_name}
 Environment: ${environment}
@@ -20,7 +20,6 @@ By: ${commit_user}
 Duration: ${duration}
 Status: ${status}
 URL: ${log_url}
-
 EOT
 )
 
@@ -28,4 +27,4 @@ EOT
 }
 
 
-send_notification "🚀" "N/A" "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" "DEPLOY"
+send_notification "START" "N/A" "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" "DEPLOY"
